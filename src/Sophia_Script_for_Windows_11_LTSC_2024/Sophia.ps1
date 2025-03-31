@@ -173,7 +173,7 @@ InitialActions -Warning
 
 # Create a restore point
 # Создать точку восстановления
-CreateRestorePoint
+# CreateRestorePoint
 #endregion Protection
 
 #region Privacy & Telemetry
@@ -256,11 +256,11 @@ WindowsWelcomeExperience -Hide
 
 # Get tips and suggestions when I use Windows (default value)
 # Получать советы и предложения при использованию Windows (значение по умолчанию)
-WindowsTips -Enable
+# WindowsTips -Enable
 
 # Do not get tips and suggestions when I use Windows
 # Не получать советы и предложения при использованию Windows
-# WindowsTips -Disable
+WindowsTips -Disable
 
 # Hide from me suggested content in the Settings app
 # Скрывать рекомендуемое содержимое в приложении "Параметры"
@@ -370,11 +370,11 @@ OpenFileExplorerTo -ThisPC
 
 # Disable File Explorer compact mode (default value)
 # Отключить компактный вид проводника (значение по умолчанию)
-FileExplorerCompactMode -Disable
+# FileExplorerCompactMode -Disable
 
 # Enable File Explorer compact mode
 # Включить компактный вид проводника
-# FileExplorerCompactMode -Enable
+FileExplorerCompactMode -Enable
 
 # Do not show sync provider notification within File Explorer
 # Не показывать уведомления поставщика синхронизации в проводнике
@@ -426,11 +426,11 @@ QuickAccessFrequentFolders -Hide
 
 # Set the taskbar alignment to the center (default value)
 # Установить выравнивание панели задач по центру (значение по умолчанию)
-TaskbarAlignment -Center
+# TaskbarAlignment -Center
 
 # Set the taskbar alignment to the left
 # Установить выравнивание панели задач по левому краю
-# TaskbarAlignment -Left
+TaskbarAlignment -Left
 
 # Hide the search on the taskbar
 # Скрыть поле или значок поиска на панели задач
@@ -466,11 +466,11 @@ TaskViewButton -Hide
 
 # Show seconds on the taskbar clock
 # Показывать секунды на часах на панели задач
-SecondsInSystemClock -Show
+# SecondsInSystemClock -Show
 
 # Hide seconds on the taskbar clock (default value)
 # Скрыть секунды на часах на панели задач (значение по умолчанию)
-# SecondsInSystemClock -Hide
+SecondsInSystemClock -Hide
 
 # Combine taskbar buttons and always hide labels (default value)
 # Объединить кнопки панели задач и всегда скрывать метки (значение по умолчанию)
@@ -494,11 +494,11 @@ TaskbarEndTask -Enable
 
 # View the Control Panel icons by large icons
 # Просмотр иконок Панели управления как: крупные значки
-ControlPanelView -LargeIcons
+# ControlPanelView -LargeIcons
 
 # View the Control Panel icons by small icons
 # Просмотр иконок Панели управления как: маленькие значки
-# ControlPanelView -SmallIcons
+ControlPanelView -SmallIcons
 
 # View the Control Panel icons by category (default value)
 # Просмотр иконок Панели управления как: категория (значение по умолчанию)
@@ -506,19 +506,19 @@ ControlPanelView -LargeIcons
 
 # Set the default Windows mode to dark
 # Установить режим Windows по умолчанию на темный
-WindowsColorMode -Dark
+# WindowsColorMode -Dark
 
 # Set the default Windows mode to light (default value)
 # Установить режим Windows по умолчанию на светлый (значение по умолчанию)
-# WindowsColorMode -Light
+WindowsColorMode -Light
 
 # Set the default app mode to dark
 # Установить цвет режима приложения на темный
-AppColorMode -Dark
+# AppColorMode -Dark
 
 # Set the default app mode to light (default value)
 # Установить цвет режима приложения на светлый (значение по умолчанию)
-# AppColorMode -Light
+AppColorMode -Light
 
 # Hide first sign-in animation after the upgrade
 # Скрывать анимацию при первом входе в систему после обновления
@@ -554,11 +554,11 @@ PrtScnSnippingTool -Enable
 
 # Let me use a different input method for each app window
 # Позволить выбирать метод ввода для каждого окна
-AppsLanguageSwitch -Enable
+# AppsLanguageSwitch -Enable
 
 # Do not use a different input method for each app window (default value)
 # Не использовать метод ввода для каждого окна (значение по умолчанию)
-# AppsLanguageSwitch -Disable
+AppsLanguageSwitch -Disable
 
 # When I grab a windows's title bar and shake it, minimize all other windows
 # При захвате заголовка окна и встряхивании сворачиваются все остальные окна
@@ -571,7 +571,7 @@ AeroShaking -Enable
 # Download and install free dark "Windows 11 Cursors Concept" cursors from Jepri Creations
 # Скачать и установить бесплатные темные курсоры "Windows 11 Cursors Concept" от Jepri Creations
 # https://www.deviantart.com/jepricreations/art/Windows-11-Cursors-Concept-886489356
-Cursors -Dark
+# Cursors -Dark
 
 # Download and install free light "Windows 11 Cursors Concept" cursors from Jepri Creations
 # Скачать и установить бесплатные светлые курсоры "Windows 11 Cursors Concept" от Jepri Creations
@@ -610,11 +610,11 @@ StartRecommendedSection -Hide
 #region System
 # Turn on Storage Sense
 # Включить Контроль памяти
-StorageSense -Enable
+# StorageSense -Enable
 
 # Turn off Storage Sense (default value)
 # Выключить Контроль памяти (значение по умолчанию)
-# StorageSense -Disable
+StorageSense -Disable
 
 # Disable hibernation. Not recommended for laptops
 # Отключить режим гибернации. Не рекомендуется для ноутбуков
@@ -642,11 +642,11 @@ BSoDStopError -Enable
 
 # Choose when to be notified about changes to your computer: never notify
 # Настройка уведомления об изменении параметров компьютера: никогда не уведомлять
-AdminApprovalMode -Never
+# AdminApprovalMode -Never
 
 # Choose when to be notified about changes to your computer: notify me only when apps try to make changes to my computer (default value)
 # Настройка уведомления об изменении параметров компьютера: уведомлять меня только при попытках приложений внести изменения в компьютер (значение по умолчанию)
-# AdminApprovalMode -Default
+AdminApprovalMode -Default
 
 # Turn off Delivery Optimization
 # Выключить оптимизацию доставки
@@ -675,7 +675,7 @@ WindowsFeatures -Disable
 
 # Enable the Windows features using the pop-up dialog box
 # Включить компоненты Windows, используя всплывающее диалоговое окно
-# WindowsFeatures -Enable
+WindowsFeatures -Enable
 
 <#
 	Uninstall optional features using the pop-up dialog box
@@ -688,7 +688,7 @@ WindowsCapabilities -Uninstall
 
 # Install optional features using the pop-up dialog box
 # Установить дополнительные компоненты, используя всплывающее диалоговое окно
-# WindowsCapabilities -Install
+WindowsCapabilities -Install
 
 # Receive updates for other Microsoft products
 # Получать обновления для других продуктов Майкрософт
@@ -700,35 +700,35 @@ UpdateMicrosoftProducts -Enable
 
 # Notify me when a restart is required to finish updating
 # Уведомлять меня о необходимости перезагрузки для завершения обновления
-RestartNotification -Show
+# RestartNotification -Show
 
 # Do not notify me when a restart is required to finish updating (default value)
 # Не yведомлять меня о необходимости перезагрузки для завершения обновления (значение по умолчанию)
-# RestartNotification -Hide
+RestartNotification -Hide
 
 # Restart as soon as possible to finish updating
 # Перезапустить устройство как можно быстрее, чтобы завершить обновление
-RestartDeviceAfterUpdate -Enable
+# RestartDeviceAfterUpdate -Enable
 
 # Don't restart as soon as possible to finish updating (default value)
 # Не перезапускать устройство как можно быстрее, чтобы завершить обновление (значение по умолчанию)
-# RestartDeviceAfterUpdate -Disable
+RestartDeviceAfterUpdate -Disable
 
 # Automatically adjust active hours for me based on daily usage
 # Автоматически изменять период активности для этого устройства на основе действий
-ActiveHours -Automatically
+# ActiveHours -Automatically
 
 # Manually adjust active hours for me based on daily usage (default value)
 # Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
-# ActiveHours -Manually
+ActiveHours -Manually
 
 # Do not get the latest updates as soon as they're available (default value)
 # Не получать последние обновления, как только они будут доступны (значение по умолчанию)
-WindowsLatestUpdate -Disable
+# WindowsLatestUpdate -Disable
 
 # Get the latest updates as soon as they're available
 # Получайте последние обновления, как только они будут доступны
-# WindowsLatestUpdate -Enable
+WindowsLatestUpdate -Enable
 
 # Set power plan on "High performance". Not recommended for laptops
 # Установить схему управления питанием на "Высокая производительность". Не рекомендуется для ноутбуков
@@ -763,7 +763,7 @@ InputMethod -English
 	Пользовательские файлы и папки не будут перемещены в новое расположение. Переместите их вручную
 	По умолчанию они располагаются в папке %USERPROFILE%
 #>
-Set-UserShellFolderLocation -Root
+# Set-UserShellFolderLocation -Root
 
 <#
 	Select folders for user folders location manually using a folder browser dialog
@@ -933,16 +933,16 @@ NetworkDiscovery -Enable
 
 # Install the latest Microsoft Visual C++ Redistributable Packages 2015–2022 (x86/x64)
 # Установить последнюю версию распространяемых пакетов Microsoft Visual C++ 2015–2022 (x86/x64)
-Install-VCRedist -Redistributables 2015_2022_x86, 2015_2022_x64
+# Install-VCRedist -Redistributables 2015_2022_x86, 2015_2022_x64
 
 # Install the latest .NET Desktop Runtime 8, 9 x64
 #Установить последнюю версию .NET Desktop Runtime 8, 9 x64
-Install-DotNetRuntimes -Runtimes NET8x64, NET9x64
+# Install-DotNetRuntimes -Runtimes NET8x64, NET9x64
 
 # Enable proxying only blocked sites from the unified registry of Roskomnadzor. The function is applicable for Russia only
 # Включить проксирование только заблокированных сайтов из единого реестра Роскомнадзора. Функция применима только для России
 # https://antizapret.prostovpn.org
-RKNBypass -Enable
+# RKNBypass -Enable
 
 # Disable proxying only blocked sites from the unified registry of Roskomnadzor (default value)
 # Выключить проксирование только заблокированных сайтов из единого реестра Роскомнадзора (значение по умолчанию)
@@ -1009,7 +1009,7 @@ UninstallUWPApps
 #region Gaming
 # Choose an app and set the "High performance" graphics performance for it. Only if you have a dedicated GPU
 # Выбрать приложение и установить для него параметры производительности графики на "Высокая производительность". Только при наличии внешней видеокарты
-Set-AppGraphicsPerformance
+# Set-AppGraphicsPerformance
 
 <#
 	Turn on hardware-accelerated GPU scheduling. Restart needed
@@ -1033,7 +1033,7 @@ GPUScheduling -Enable
 	Создать задание "Windows Cleanup" по очистке неиспользуемых файлов и обновлений Windows в Планировщике заданий.
 	Задание выполняется каждые 30 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-CleanupTask -Register
+# CleanupTask -Register
 
 # Delete the "Windows Cleanup" and "Windows Cleanup Notification" scheduled tasks for cleaning up Windows unused files and updates
 # Удалить задания "Windows Cleanup" и "Windows Cleanup Notification" по очистке неиспользуемых файлов и обновлений Windows из Планировщика заданий
@@ -1046,7 +1046,7 @@ CleanupTask -Register
 	Создать задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download в Планировщике заданий
 	Задание будет ждать, пока служба обновлений Windows не закончит работу. Задание выполняется каждые 90 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-SoftwareDistributionTask -Register
+# SoftwareDistributionTask -Register
 
 # Delete the "SoftwareDistribution" scheduled task for cleaning up the %SystemRoot%\SoftwareDistribution\Download folder
 # Удалить задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download из Планировщика заданий
@@ -1059,7 +1059,7 @@ SoftwareDistributionTask -Register
 	Создать задание "Temp" в Планировщике заданий по очистке папки %TEMP%
 	Удаляться будут только файлы старше одного дня. Задание выполняется каждые 60 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-TempTask -Register
+# TempTask -Register
 
 # Delete the "Temp" scheduled task for cleaning up the %TEMP% folder
 # Удалить задание "Temp" по очистке папки %TEMP% из Планировщика заданий
@@ -1077,11 +1077,11 @@ NetworkProtection -Enable
 
 # Enable detection for potentially unwanted applications and block them
 # Включить обнаружение потенциально нежелательных приложений и блокировать их
-PUAppsDetection -Enable
+# PUAppsDetection -Enable
 
 # Disable detection for potentially unwanted applications and block them (default value)
 # Выключить обнаружение потенциально нежелательных приложений и блокировать их (значение по умолчанию)
-# PUAppsDetection -Disable
+PUAppsDetection -Disable
 
 # Enable sandboxing for Microsoft Defender
 # Включить песочницу для Microsoft Defender
@@ -1101,7 +1101,7 @@ DismissSmartScreenFilter
 
 # Create the "Process Creation" сustom view in the Event Viewer to log executed processes and their arguments
 # Создать настраиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов
-EventViewerCustomView -Enable
+# EventViewerCustomView -Enable
 
 # Remove the "Process Creation" custom view in the Event Viewer to log executed processes and their arguments (default value)
 # Удалить настраиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов (значение по умолчанию)
@@ -1109,7 +1109,7 @@ EventViewerCustomView -Enable
 
 # Enable logging for all Windows PowerShell modules
 # Включить ведение журнала для всех модулей Windows PowerShell
-PowerShellModulesLogging -Enable
+# PowerShellModulesLogging -Enable
 
 # Disable logging for all Windows PowerShell modules (default value)
 # Выключить ведение журнала для всех модулей Windows PowerShell (значение по умолчанию)
@@ -1117,7 +1117,7 @@ PowerShellModulesLogging -Enable
 
 # Enable logging for all PowerShell scripts input to the Windows PowerShell event log
 # Включить ведение журнала для всех вводимых сценариев PowerShell в журнале событий Windows PowerShell
-PowerShellScriptsLogging -Enable
+# PowerShellScriptsLogging -Enable
 
 # Disable logging for all PowerShell scripts input to the Windows PowerShell event log (default value)
 # Выключить ведение журнала для всех вводимых сценариев PowerShell в журнале событий Windows PowerShell (значение по умолчанию)
@@ -1162,7 +1162,7 @@ SaveZoneInformation -Disable
 	Включить DNS-over-HTTPS для IPv4
 	Действительные IPv4-адреса: 1.0.0.1, 1.1.1.1, 149.112.112.112, 8.8.4.4, 8.8.8.8, 9.9.9.9
 #>
-DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
+# DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
 
 # Disable DNS-over-HTTPS for IPv4 (default value)
 # Выключить DNS-over-HTTPS для IPv4 (значение по умолчанию)
@@ -1184,19 +1184,19 @@ DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
 #region Context menu
 # Show the "Extract all" item in the Windows Installer (.msi) context menu
 # Отобразить пункт "Извлечь все" в контекстное меню Windows Installer (.msi)
-MSIExtractContext -Show
+# MSIExtractContext -Show
 
 # Hide the "Extract all" item from the Windows Installer (.msi) context menu (default value)
 # Скрыть пункт "Извлечь все" из контекстного меню Windows Installer (.msi) (значение по умолчанию)
-# MSIExtractContext -Hide
+MSIExtractContext -Hide
 
 # Show the "Install" item in the Cabinet (.cab) filenames extensions context menu
 # Отобразить пункт "Установить" в контекстное меню .cab архивов
-CABInstallContext -Show
+# CABInstallContext -Show
 
 # Hide the "Install" item from the Cabinet (.cab) filenames extensions context menu (default value)
 # Скрыть пункт "Установить" из контекстного меню .cab архивов (значение по умолчанию)
-# CABInstallContext -Hide
+CABInstallContext -Hide
 
 # Hide the "Print" item from the .bat and .cmd context menu
 # Скрыть пункт "Печать" из контекстного меню .bat и .cmd файлов
