@@ -4970,6 +4970,8 @@ function WindowsFeatures
 
 		# Work Folders Client
 		"WorkFolders-Client"
+
+		Microsoft-Hyper-V-All
 	)
 
 	# The following Windows features will have their checkboxes unchecked
@@ -13108,3 +13110,328 @@ function Errors
 	Write-Warning -Message $Localization.RestartWarning
 }
 #endregion Errors
+
+#region Custom
+function InkingAndTextCollection
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\InputPersonalization -Name RestrictImplicitInkCollection -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\InputPersonalization -Name RestrictImplicitTextCollection -PropertyType DWord -Value 0 -Force
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\InputPersonalization -Name RestrictImplicitInkCollection -PropertyType DWord -Value 1 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\InputPersonalization -Name RestrictImplicitTextCollection -PropertyType DWord -Value 1 -Force
+		}
+	}
+}
+
+function AmbientLighting
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Lighting -Name AmbientLightingEnabled -PropertyType DWord -Value 1 -Force
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Lighting -Name AmbientLightingEnabled -PropertyType DWord -Value 0 -Force
+		}
+	}
+}
+
+function DevMode
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock -Name AllowDevelopmentWithoutDevLicense -PropertyType DWord -Value 1 -Force
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock -Name AllowDevelopmentWithoutDevLicense -PropertyType DWord -Value 0 -Force
+		}
+	}
+}
+
+function Sudo
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			&"$env:SystemRoot\System32\sudo.exe" config --enable enable
+		}
+		"Disable"
+		{
+			&"$env:SystemRoot\System32\sudo.exe" config --disable
+		}
+	}
+}
+
+function RestorePoint
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			Enable-ComputerRestore -Drive $env:SystemDrive
+		}
+		"Disable"
+		{
+			Disable-ComputerRestore -Drive $env:SystemDrive
+		}
+	}
+}
+
+function RemoteAssistance
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance -Name fAllowToGetHelp -PropertyType DWord -Value 1 -Force
+			New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance -Name fAllowFullControl -PropertyType DWord -Value 1 -Force
+			Set-NetFirewallRule -DisplayGroup "Remote Assistance" -Enabled True
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance -Name fAllowToGetHelp -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance -Name fAllowFullControl -PropertyType DWord -Value 0 -Force
+			Set-NetFirewallRule -DisplayGroup "Remote Assistance" -Enabled False
+		}
+	}
+}
+
+function ControlPanelOnDesktop
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -PropertyType DWord -Value 0 -Force
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -PropertyType DWord -Value 1 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -PropertyType DWord -Value 1 -Force
+
+		}
+	}
+}
+
+function UserFolderOnDesktop
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Enable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -PropertyType DWord -Value 0 -Force
+		}
+		"Disable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -PropertyType DWord -Value 1 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -PropertyType DWord -Value 1 -Force
+
+		}
+	}
+}
+
+function XboxGameBar
+{
+	param
+	(
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Disable"
+		)]
+		[switch]
+		$Disable,
+
+		[Parameter(
+			Mandatory = $true,
+			ParameterSetName = "Enable"
+		)]
+		[switch]
+		$Enable
+	)
+
+	switch ($PSCmdlet.ParameterSetName)
+	{
+		"Disable"
+		{
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name AppCaptureEnabled -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR -Name NoWinKeys -PropertyType DWord -Value 1 -Force
+			New-ItemProperty -Path HKCU:\System\GameConfigStore -Name GameDVR_Enabled -PropertyType DWord -Value 0 -Force
+			New-ItemProperty -Path HKCU:\System\GameConfigStore -Name GameDVR_FSEBehaviorMode -PropertyType DWord -Value 2 -Force
+			New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\GameBar -Name UseNexusForGameBarEnabled -PropertyType DWord -Value 0 -Force
+
+			if (-not (Test-Path -Path HHKLM:\SOFTWARE\Classes\ms-gamebar\shell\open\command))
+			{
+				New-Item -Path HKLM:\SOFTWARE\Classes\ms-gamebar\shell\open\command -Force
+			}
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebar -Name '(default)' -Value 'URL:ms-gamebar' -PropertyType String -Force 
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebar -Name 'URL Protocol' -Value '' -PropertyType String -Force
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebar -Name 'NoOpenWith' -Value '' -PropertyType String -Force
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebar\shell\open\command -Name '(default)' -Value "$env:SystemRoot/System32/systray.exe" -PropertyType String -Force
+
+			if (-not (Test-Path -Path HHKLM:\SOFTWARE\Classes\ms-gamebarservices\shell\open\command))
+			{
+				New-Item -Path HKLM:\SOFTWARE\Classes\ms-gamebarservices\shell\open\command -Force
+			}
+
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebarservices -Name '(default)' -Value 'URL:ms-gamebarservices' -PropertyType String -Force
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebarservices -Name 'URL Protocol' -Value '' -PropertyType String -Force
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebarservices -Name 'NoOpenWith' -Value '' -PropertyType String -Force
+			New-ItemProperty -Path HKLM:\SOFTWARE\Classes\ms-gamebarservices\shell\open\command -Name '(default)' -Value "$env:SystemRoot/System32/systray.exe" -PropertyType String -Force
+		}
+		"Enable"
+		{
+			Write-Information -MessageData "TODO: Reinstall Gamebar" -InformationAction Continue
+		}
+	}
+}
+#endregion Custom

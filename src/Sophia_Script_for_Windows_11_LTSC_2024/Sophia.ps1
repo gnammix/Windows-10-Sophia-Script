@@ -1229,6 +1229,18 @@ MultipleInvokeContext -Enable
 # ScanRegistryPolicies
 #endregion Update Policies
 
+#region Custom
+InkingAndTextCollection -Disable
+AmbientLighting -Disable
+DevMode -Enable
+Sudo -Enable
+RestorePoint -Disable
+RemoteAssistance -Disable
+ControlPanelOnDesktop -Enable
+UserFolderOnDesktop -Enable
+XboxGameBar -Disable
+#endregion Custom
+
 # Environment refresh and other neccessary post actions
 # Обновление окружения и прочие необходимые действия после выполнения основных функций
 PostActions
